@@ -10,7 +10,7 @@ import {
   provideNativeDateAdapter,
   VERSION as MAT_VERSION,
 } from '@angular/material/core';
-import {DatepickerOverviewExample} from './example/datepicker-overview-example';
+import {MyDatepicker} from './app/my-form/my-datepicker/my-datepicker.component';
 import {MatDatepickerIntl} from '@angular/material/datepicker';
 import {DeIntl} from "./de-intl.service";
 
@@ -20,7 +20,7 @@ console.info('Angular Material version', MAT_VERSION.full);
 
 
 
-bootstrapApplication(DatepickerOverviewExample, {
+bootstrapApplication(MyDatepicker, {
   providers: [
     provideAnimations(),
     provideHttpClient(),
