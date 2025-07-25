@@ -13,7 +13,7 @@ import {DeIntl} from "../../../de-intl.service";
 
 /** @title Basic datepicker */
 @Component({
-    selector: 'datepicker-overview-example',
+    selector: 'my-datepicker',
     templateUrl: 'my-datepicker.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
