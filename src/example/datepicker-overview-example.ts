@@ -16,24 +16,9 @@ import {DeIntl} from "../de-intl.service";
     selector: 'datepicker-overview-example',
     templateUrl: 'datepicker-overview-example.html',
     standalone: true,
-    providers: [
-        // provideNativeDateAdapter(),
-        // {
-        //     provide: DateAdapter,
-        //     useClass: NativeDateAdapter
-        // },
-        {provide: MAT_DATE_FORMATS, useValue: MAT_NATIVE_DATE_FORMATS},
-        {provide: MatDatepickerIntl, useClass: DeIntl},
-        provideNativeDateAdapter(),
-        {provide: MAT_DATE_LOCALE, useValue: 'de-DE'}
-    ],
     imports: [MatFormFieldModule, MatInputModule, MatDatepickerModule],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DatepickerOverviewExample {
 }
 
-
-/**  Copyright 2025 Google LLC. All Rights Reserved.
- Use of this source code is governed by an MIT-style license that
- can be found in the LICENSE file at https://angular.io/license */

@@ -5,13 +5,14 @@ import {provideHttpClient} from '@angular/common/http';
 import {provideAnimations} from '@angular/platform-browser/animations';
 import {VERSION as CDK_VERSION} from '@angular/cdk';
 import {
-  MAT_DATE_LOCALE,
+  MAT_DATE_FORMATS,
+  MAT_DATE_LOCALE, MAT_NATIVE_DATE_FORMATS,
   MatNativeDateModule,
   provideNativeDateAdapter,
   VERSION as MAT_VERSION,
 } from '@angular/material/core';
 import {DatepickerOverviewExample} from './example/datepicker-overview-example';
-import {MatDatepickerIntl} from '@angular/material/datepicker';
+import {MatDatepickerIntl, MatDatepickerModule} from '@angular/material/datepicker';
 import {DeIntl} from "./de-intl.service";
 
 /* eslint-disable no-console */
@@ -24,8 +25,19 @@ bootstrapApplication(DatepickerOverviewExample, {
   providers: [
     provideAnimations(),
     provideHttpClient(),
-    importProvidersFrom(MatNativeDateModule),
 
+    importProvidersFrom(
+        MatDatepickerModule,
+        MatNativeDateModule
+    ),
 
+    { provide: MAT_DATE_FORMATS, useValue: MAT_NATIVE_DATE_FORMATS },
+    { provide: MAT_DATE_LOCALE,   useValue: 'de-DE'           },
+    provideNativeDateAdapter(),
+
+    { provide: MatDatepickerIntl, useClass: DeIntl   },
   ],
-}).catch((err) => console.error(err));
+}).catch(err => console.error(err));
+
+
+
